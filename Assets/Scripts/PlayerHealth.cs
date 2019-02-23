@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     SlomoHandler slomoHandler;
     private int health=3;
+    private bool hasArmor;
 
     private bool isInvincible=false;
 
@@ -29,9 +30,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    
+
     private void Hit()
     {
-        slomoHandler.StartSlomo();
+        if (slomoHandler)slomoHandler.StartSlomo();
         if(health<=0)
         {
             Die();

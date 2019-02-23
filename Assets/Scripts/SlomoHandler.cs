@@ -9,6 +9,12 @@ public class SlomoHandler : MonoBehaviour
 
     bool isSlomo;
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+    }
+
     public void StartSlomo()
     {
 

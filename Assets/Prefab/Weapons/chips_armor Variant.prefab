@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100014, guid: 8dec427ac2a9fe34b827e894f7340275, type: 3}
       propertyPath: m_Name
-      value: chips_armor
+      value: chips_armor Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8dec427ac2a9fe34b827e894f7340275, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41,11 +41,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 8dec427ac2a9fe34b827e894f7340275, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0245
+      value: 0.0252
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 8dec427ac2a9fe34b827e894f7340275, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0209
+      value: -0.0199
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 8dec427ac2a9fe34b827e894f7340275, type: 3}
       propertyPath: m_LocalRotation.x
