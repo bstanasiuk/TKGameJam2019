@@ -12,10 +12,6 @@ public class PlayerLegs : MonoBehaviour
 
     [SerializeField] private float _legForceMultiplier = 10f;
 
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
