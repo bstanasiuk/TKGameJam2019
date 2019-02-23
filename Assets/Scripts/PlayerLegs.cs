@@ -32,6 +32,8 @@ public class PlayerLegs : MonoBehaviour
     private Vector3 oldDebugPos;
     private Vector3 followingPos;
 
+    private bool needToStop; 
+
     private int frameCounter = 0;
 
     void Start()
@@ -105,38 +107,59 @@ public class PlayerLegs : MonoBehaviour
 
     private void MoveLeftLeg()
     {
+        Vector3 forcePosition = Vector3.zero;
+        Vector3 forceDirection = Vector3.zero;
         if (_leftLegLine.SelectedKeyIndex.HasValue)
         {
             leftLegTargetPosition = _leftLegLine.LineVisualizer.Keys[_leftLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
-            leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 0.3f, leftLegTargetPosition.z);
-            var forcePosition = _playerLeftLegFootPosition.position;
-            _playerLeftLeg.AddForceAtPosition((leftLegTargetPosition - _playerLeftLeg.position) * _legForceMultiplier, forcePosition);
-
+            leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 0.0f, leftLegTargetPosition.z);
+            forcePosition = _playerLeftLegFootPosition.position;
+            forceDirection = Vector3.ClampMagnitude((leftLegTargetPosition - _playerLeftLeg.position), 100.0f);
+            //_playerLeftLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
+            //_playerLeftLeg.transform.position = leftLegTargetPosition - (-_playerLeftLeg.transform.position + _playerLeftLegFootPosition.position);
         }
         else if (_rightLegLine.SelectedKeyIndex.HasValue)
         {
             leftLegTargetPosition = _rightLegLine.LineVisualizer.Keys[_rightLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
             leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 0.6f, _playerLeftLeg.transform.position.z);
-            var forcePosition = _playerLeftLegFootPosition.position;
-            _playerLeftLeg.AddForceAtPosition((leftLegTargetPosition - _playerLeftLeg.position) * _legForceMultiplier, forcePosition);
+            forcePosition = _playerLeftLegFootPosition.position;
+            forceDirection = Vector3.ClampMagnitude((leftLegTargetPosition - _playerLeftLeg.position), 100.0f);
+            //_playerLeftLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
+            //_playerLeftLeg.transform.position = leftLegTargetPosition - (-_playerLeftLeg.transform.position + _playerLeftLegFootPosition.position);
         }
+        _playerLeftLegFootPosition.transform.position =  leftLegTargetPosition;
+
+        //_playerLeftLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
+        //_playerLeftLeg.AddForceAtPosition(forceDirection / Time.fixedDeltaTime, forcePosition);//, ForceMode.Impulse);
     }
 
     private void MoveRightLeg()
     {
+        Vector3 forcePosition = Vector3.zero;
+        Vector3 forceDirection = Vector3.zero;
         if (_rightLegLine.SelectedKeyIndex.HasValue)
         {
             rightLegTargetPosition = _rightLegLine.LineVisualizer.Keys[_rightLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
-            rightLegTargetPosition = new Vector3(rightLegTargetPosition.x, 0.3f, rightLegTargetPosition.z);
-            var forcePosition = _playerRightLegFootPosition.position;
-            _playerRightLeg.AddForceAtPosition((rightLegTargetPosition - _playerRightLeg.position) * _legForceMultiplier, forcePosition);
+            rightLegTargetPosition = new Vector3(rightLegTargetPosition.x, 0.0f, rightLegTargetPosition.z);
+            forcePosition = _playerRightLegFootPosition.position;
+            forceDirection = Vector3.ClampMagnitude(rightLegTargetPosition - _playerRightLeg.position, 100.0f);
+            //_playerRightLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
+            //_playerRightLeg.transform.position = rightLegTargetPosition - (-_playerRightLeg.transform.position + _playerRightLegFootPosition.position);
         }
         else if (_leftLegLine.SelectedKeyIndex.HasValue)
         {
             rightLegTargetPosition = _leftLegLine.LineVisualizer.Keys[_leftLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
             rightLegTargetPosition = new Vector3(rightLegTargetPosition.x, 0.6f, _playerRightLeg.transform.position.z);
-            _playerRightLeg.AddForce((rightLegTargetPosition - _playerRightLeg.position) * _legForceMultiplier);
+            forcePosition = _playerRightLegFootPosition.position;
+            forceDirection = Vector3.ClampMagnitude(rightLegTargetPosition - _playerRightLeg.position, 100.0f);
+            //_playerRightLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
+            //_playerRightLeg.transform.position = rightLegTargetPosition - (-_playerRightLeg.transform.position + _playerRightLegFootPosition.position);
         }
+
+        _playerRightLegFootPosition.transform.position = rightLegTargetPosition;
+
+        //_playerRightLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
+        //_playerRightLeg.AddForceAtPosition(forceDirection / Time.fixedDeltaTime, forcePosition);//, ForceMode.Impulse);
     }
 
     private void MoveTorso()
@@ -144,10 +167,16 @@ public class PlayerLegs : MonoBehaviour
         if (_leftLegLine.SelectedKeyIndex.HasValue || _rightLegLine.SelectedKeyIndex.HasValue)
         {
             _playerTorso.AddForceAtPosition((new Vector3(0, _torsoheight - _playerTorso.position.y, 0)) * _torsoForceMultiplier, neckTransform.position);
+            needToStop = true;
         }
         else
         {
-            _playerTorso.AddForceAtPosition((new Vector3(0, _playerTorso.position.y - _torsoheight, 0)) * _torsoForceMultiplier, neckTransform.position);
+            _playerTorso.AddForceAtPosition((new Vector3(0, _playerTorso.position.y - _torsoheight, 0)) * _torsoForceMultiplier * 10.0f, neckTransform.position);
+            if(needToStop)
+            {
+                //_playerTorso.velocity = new Vector3(0, _playerTorso.velocity.y, 0);
+                needToStop = false;
+            }
         }
     }
 
