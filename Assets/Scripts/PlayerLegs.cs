@@ -12,15 +12,34 @@ public class PlayerLegs : MonoBehaviour
     [SerializeField] private Rigidbody _playerRightLeg;
     [SerializeField] private Transform _playerRightLegFootPosition;
     [SerializeField] private Rigidbody _playerTorso;
+    [SerializeField] private Transform neckTransform;
 
     [SerializeField] private float _legForceMultiplier = 10f;
     [SerializeField] private float _torsoForceMultiplier = 10f;
-     [SerializeField] private float _torsoheight = 4f;
+    [SerializeField] private float _torsoheight = 4f;
+    [SerializeField] private float _forceTargetSpeed = 0.7f;
+    [SerializeField] private GameObject debugSphere;
+    [SerializeField] private GameObject debugSphere2;
+    [SerializeField] private GameObject debugCube;
+    [SerializeField] private float attackTreshold = 0.6f;
+    [SerializeField] private float attackForce = 700f;
+
 
     private Vector3 leftLegTargetPosition;
     private Vector3 rightLegTargetPosition;
+    private float velocity;
+    private float oldVelocity;
+    private Vector3 oldDebugPos;
+    private Vector3 followingPos;
 
+    private int frameCounter = 0;
 
+    void Start()
+    {
+        followingPos = (_playerRightLegFootPosition.position + _playerLeftLegFootPosition.position) * 0.5f;
+        followingPos.y = _torsoheight;
+        followingPos.z = -2.412662f;
+    }
     private void Update()
     {
         CheckLegAlignment();
@@ -36,6 +55,52 @@ public class PlayerLegs : MonoBehaviour
         MoveLeftLeg();
         MoveRightLeg();
         MoveTorso();
+
+        Vector3 debugPos = (leftLegTargetPosition + rightLegTargetPosition) * 0.5f;
+        
+        debugPos.y = _torsoheight;
+        debugPos.z = -2.412662f;
+        if(frameCounter == 0)
+        {
+            followingPos = debugPos;
+        }
+        frameCounter++;
+        if(debugSphere != null)
+        {
+            debugSphere.transform.position = debugPos;
+        }
+
+        if(oldDebugPos != debugPos)
+        {
+            velocity += debugPos.x - oldDebugPos.x;
+        }
+
+        if(debugCube != null)
+        {
+            debugCube.transform.position = debugPos + new Vector3(velocity, 0, 0) * 0.5f;
+            debugCube.transform.localScale = new Vector3(velocity, debugCube.transform.localScale.y, debugCube.transform.localScale.z);
+        }
+
+        followingPos = Vector3.Lerp(followingPos, debugPos, _forceTargetSpeed * Time.fixedDeltaTime);
+
+        if(debugSphere2 != null)
+        {
+            debugSphere2.transform.position = followingPos;   
+        }
+
+        velocity -= Mathf.Sign(velocity) * 2.0f * Time.fixedDeltaTime;
+        if(Mathf.Abs(velocity) > attackTreshold)
+        {
+            _playerTorso.AddForceAtPosition((followingPos - debugPos) * attackForce * 0.1f, neckTransform.position);
+        }
+        else if(Mathf.Abs(velocity) < attackTreshold && !(Mathf.Abs(oldVelocity) >= attackTreshold))
+        {
+            //Debug.Log(velocity + " " + oldVelocity + "  " + debugPos + " "  + followingPos + " " + (oldDebugPos - followingPos).magnitude);
+            _playerTorso.AddForce((debugPos - followingPos) * attackForce);
+        }
+
+        oldDebugPos = debugPos;
+        oldVelocity = velocity;
     }
 
     private void MoveLeftLeg()
@@ -76,9 +141,13 @@ public class PlayerLegs : MonoBehaviour
 
     private void MoveTorso()
     {
-        if (_leftLegLine.SelectedKeyIndex.HasValue && _rightLegLine.SelectedKeyIndex.HasValue)
+        if (_leftLegLine.SelectedKeyIndex.HasValue || _rightLegLine.SelectedKeyIndex.HasValue)
         {
-            _playerTorso.AddForce((new Vector3(0, _torsoheight - _playerTorso.position.y, 0)) * _torsoForceMultiplier);
+            _playerTorso.AddForceAtPosition((new Vector3(0, _torsoheight - _playerTorso.position.y, 0)) * _torsoForceMultiplier, neckTransform.position);
+        }
+        else
+        {
+            _playerTorso.AddForceAtPosition((new Vector3(0, _playerTorso.position.y - _torsoheight, 0)) * _torsoForceMultiplier, neckTransform.position);
         }
     }
 
