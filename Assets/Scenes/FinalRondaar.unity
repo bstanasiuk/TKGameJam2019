@@ -6114,6 +6114,66 @@ MonoBehaviour:
   - {fileID: 6451658422183840202, guid: 732c666de3e4f47bab76a64d326169f4, type: 3}
   - {fileID: 8717905218467406963, guid: ebb9f6083cc08db439c00ff15d3d8fa3, type: 3}
   - {fileID: 2682349437340638888, guid: d84a491ac2acc456ca87600921c4545a, type: 3}
+--- !u!1 &793692887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793692890}
+  - component: {fileID: 793692889}
+  - component: {fileID: 793692888}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &793692888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793692887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f2228f35319324c9f5441902f89846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &793692889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793692887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9cfdcb8914eca49bc0f170e3fa1828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerDead:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Vector3Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!4 &793692890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793692887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.156587, y: -2.533567, z: 12.080093}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &803197032
 Mesh:
   m_ObjectHideFlags: 0
@@ -9238,6 +9298,31 @@ PrefabInstance:
     - target: {fileID: 2648990323428192116, guid: 41a905615c1bc42189eaad2eb0dfd81f,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648990323428192116, guid: 41a905615c1bc42189eaad2eb0dfd81f,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648990323428192116, guid: 41a905615c1bc42189eaad2eb0dfd81f,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648990323428192116, guid: 41a905615c1bc42189eaad2eb0dfd81f,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648990323428192116, guid: 41a905615c1bc42189eaad2eb0dfd81f,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648990323428192116, guid: 41a905615c1bc42189eaad2eb0dfd81f,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
