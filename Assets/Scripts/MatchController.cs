@@ -21,10 +21,15 @@ public class MatchController : MonoBehaviour
 
     [SerializeField]
     InputGui inputGui;
+    [SerializeField]
+    CounterGui counterGui;
+
+    public bool Ready { get; set; }
 
     private void Start()
     {
         StartCoroutine(WaitForInput());
+
     }
 
 
@@ -42,8 +47,8 @@ public class MatchController : MonoBehaviour
     {
         bool firstPlayerReady = false;
         bool secondPlayerReady = false;
-        bool ready = false;
-        while (!ready) 
+        bool counterStarted = false;
+        while (!Ready) 
         { 
             if (firstPlayerLeftLegLine.SelectedKeyIndex == 0 && firstPlayerRightLegLine.SelectedKeyIndex == 0)
             {
@@ -86,15 +91,32 @@ public class MatchController : MonoBehaviour
 
             if (firstPlayerReady && secondPlayerReady)
             {
-                ready = true;
+                if (!counterStarted)
+                {
+                    counterStarted = true;
+                    counterGui.StartCounter();
+                }
+
+            }
+            else
+            {
+                if (counterStarted)
+                {
+                    counterStarted = false;
+                    counterGui.InterfereCounter();
+                }
             }
             yield return null; 
         }
         StartMatch();
     }
 
+
+
     private void StartMatch()
     {
         inputGui.HideBoth();
     }
+
+
 }
