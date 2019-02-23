@@ -5,6 +5,7 @@ public class LegLine : MonoBehaviour
     [SerializeField] private KeyCode[] _keys;
     public LineVisualizerWithMeshKeys LineVisualizer { get; private set; }
     public int? SelectedKeyIndex { get; private set; }
+    public int LastSelectedKey { get; private set; }
 
     public KeyCode[] Keys
     {
@@ -34,6 +35,7 @@ public class LegLine : MonoBehaviour
                 if (Input.GetKey(_keys[i]) && !SelectedKeyIndex.HasValue)
                 {
                     SelectedKeyIndex = i;
+                    LastSelectedKey = i;
                     LineVisualizer.ActivateKey(i);
                 }
                 else
@@ -42,4 +44,9 @@ public class LegLine : MonoBehaviour
                 }
         }
     }
+
+/*    private bool IsEligable(int keyIndex)
+    {
+        
+    }*/
 }
