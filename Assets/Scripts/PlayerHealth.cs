@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        EventManager.Instance.PlayerDead.Invoke(Vector3.zero);
     }
 
     IEnumerator InvincibleTime()
