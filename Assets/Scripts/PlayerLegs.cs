@@ -120,8 +120,8 @@ public class PlayerLegs : MonoBehaviour
         }
         else if (_rightLegLine.SelectedKeyIndex.HasValue)
         {
-            leftLegTargetPosition = _rightLegLine.LineVisualizer.Keys[_rightLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
-            leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 0.6f, _playerLeftLeg.transform.position.z);
+            //leftLegTargetPosition = _rightLegLine.LineVisualizer.Keys[_rightLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
+            //leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 0.6f, _playerLeftLeg.transform.position.z);
             forcePosition = _playerLeftLegFootPosition.position;
             forceDirection = Vector3.ClampMagnitude((leftLegTargetPosition - _playerLeftLeg.position), 100.0f);
             //_playerLeftLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
@@ -148,8 +148,8 @@ public class PlayerLegs : MonoBehaviour
         }
         else if (_leftLegLine.SelectedKeyIndex.HasValue)
         {
-            rightLegTargetPosition = _leftLegLine.LineVisualizer.Keys[_leftLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
-            rightLegTargetPosition = new Vector3(rightLegTargetPosition.x, 0.6f, _playerRightLeg.transform.position.z);
+            //rightLegTargetPosition = _leftLegLine.LineVisualizer.Keys[_leftLegLine.SelectedKeyIndex.Value].transform.GetChild(1).position;
+            //rightLegTargetPosition = new Vector3(rightLegTargetPosition.x, 0.6f, _playerRightLeg.transform.position.z);
             forcePosition = _playerRightLegFootPosition.position;
             forceDirection = Vector3.ClampMagnitude(rightLegTargetPosition - _playerRightLeg.position, 100.0f);
             //_playerRightLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
