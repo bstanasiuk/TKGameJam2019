@@ -3,7 +3,7 @@
 public class LegLine : MonoBehaviour
 {
     [SerializeField] private KeyCode[] _keys;
-    private LineVisualizer _lineVisualizer;
+    public LineVisualizer LineVisualizer { get; private set; }
     public int? SelectedKeyIndex { get; private set; }
 
     public KeyCode[] Keys
@@ -13,7 +13,7 @@ public class LegLine : MonoBehaviour
 
     private void Awake()
     {
-        _lineVisualizer = GetComponent<LineVisualizer>();
+        LineVisualizer = GetComponent<LineVisualizer>();
     }
 
     private void Update()
@@ -34,11 +34,11 @@ public class LegLine : MonoBehaviour
                 if (Input.GetKey(_keys[i]) && !SelectedKeyIndex.HasValue)
                 {
                     SelectedKeyIndex = i;
-                    _lineVisualizer.ActivateKey(i);
+                    LineVisualizer.ActivateKey(i);
                 }
                 else
                 {
-                    _lineVisualizer.DisableKey(i);
+                    LineVisualizer.DisableKey(i);
                 }
         }
     }
