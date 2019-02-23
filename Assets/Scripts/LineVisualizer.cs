@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class LineVisualizer : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer _keyPrefab;
+    [SerializeField] private Transform _keyPrefab;
     [SerializeField] private float spaceOffset;
     [SerializeField] private float xOffset;
     [SerializeField] private float zOffset;
 
-    private readonly List<MeshRenderer> _keys = new List<MeshRenderer>();
+    public List<Transform> Keys { get; } = new List<Transform>();
 
     private void Awake()
     {
@@ -20,18 +20,18 @@ public class LineVisualizer : MonoBehaviour
     {
         for (var i = 0; i < GetComponent<LegLine>().Keys.Length; i++)
         {
-            _keys.Add(Instantiate(_keyPrefab, new Vector3(xOffset + i * spaceOffset, 0, zOffset),
+            Keys.Add(Instantiate(_keyPrefab, new Vector3(xOffset + i * spaceOffset, 0, zOffset),
                 _keyPrefab.transform.rotation, transform));
         }
     }
 
     public void ActivateKey(int keyIndex)
     {
-        _keys[keyIndex].material.color = Color.black;
+        Keys[keyIndex].GetComponent<MeshRenderer>().material.color = Color.black;
     }
 
     public void DisableKey(int keyIndex)
     {
-        _keys[keyIndex].material.color = Color.white;
+        Keys[keyIndex].GetComponent<MeshRenderer>().material.color = Color.white;
     }
 }

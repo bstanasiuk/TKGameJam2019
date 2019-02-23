@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlayerLegs : MonoBehaviour
 {
-
-
-    private LegLine _leftLegLine;
-    private LegLine _rightLegLine;
+    [SerializeField] private LegLine _leftLegLine;
+    [SerializeField] private LegLine _rightLegLine;
 
     private void Awake()
     {

@@ -4,7 +4,7 @@ public class LegLine : MonoBehaviour
 {
     [SerializeField] private KeyCode[] _keys;
     private LineVisualizer _lineVisualizer;
-    private int? _selectedKeyIndex;
+    public int? SelectedKeyIndex { get; private set; }
 
     public KeyCode[] Keys
     {
@@ -23,17 +23,17 @@ public class LegLine : MonoBehaviour
 
     private void HandleInput()
     {
-        if (_selectedKeyIndex.HasValue)
+        if (SelectedKeyIndex.HasValue)
         {
-            if (!Input.GetKey(Keys[_selectedKeyIndex.Value]))
-                _selectedKeyIndex = null;
+            if (!Input.GetKey(Keys[SelectedKeyIndex.Value]))
+                SelectedKeyIndex = null;
         }
         else
         {
             for (var i = 0; i < _keys.Length; i++)
-                if (Input.GetKey(_keys[i]) && !_selectedKeyIndex.HasValue)
+                if (Input.GetKey(_keys[i]) && !SelectedKeyIndex.HasValue)
                 {
-                    _selectedKeyIndex = i;
+                    SelectedKeyIndex = i;
                     _lineVisualizer.ActivateKey(i);
                 }
                 else
