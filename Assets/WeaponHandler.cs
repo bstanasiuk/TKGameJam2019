@@ -1,33 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
-    [SerializeField]
-    Transform hand;
-    [SerializeField]
-    GameObject weaponPref;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform hand;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private GameObject[] weaponPref;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AttachWeapon();
-        }
+        AttachWeapon();
     }
 
     public void AttachWeapon()
     {
-        GameObject newWeapon = Instantiate(weaponPref, hand, false);
-
+        var randomWeaponIndex = Random.Range(0, weaponPref.Length);
+        var weapon = Instantiate(weaponPref[randomWeaponIndex], hand, false);
+        weapon.layer = gameObject.layer;
     }
-
-
 }
