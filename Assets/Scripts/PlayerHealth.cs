@@ -30,11 +30,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    
+    public void AddArmor()
+    {
+        hasArmor = true;
+    }
 
     private void Hit()
     {
-        if (slomoHandler)slomoHandler.StartSlomo();
+        if (slomoHandler && !hasArmor) slomoHandler.StartSlomo();
         if(health<=0)
         {
             Die();
