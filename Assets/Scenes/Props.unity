@@ -1849,7 +1849,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695964198}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!114 &1783486752 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1061262097202137249, guid: 267accdc34f6ff646a71287bbb8524ba,
@@ -1874,6 +1874,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0404fa3fb1ce7d4dabbc16c7cfb4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1821996916
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_Name
+      value: czipsy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.586086
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.9731834
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.6984
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.045437355
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9527437
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.29780558
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.03907577
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -34.327003
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -172.93901
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -7.6440005
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 270.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 405.315
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 270.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a84097d5f559fd846a5fd09a64310f72, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d54333a511e4c8d4b8eb39a810ca71cc, type: 3}
 --- !u!114 &1858813606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1061262097143770919, guid: 267accdc34f6ff646a71287bbb8524ba,
@@ -2041,7 +2114,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: df02702e1e55f5c408626d719c735176, type: 2}
+      objectReference: {fileID: 2100000, guid: ff611c97defb750439131f78dec7ec2e, type: 2}
     - target: {fileID: 4637944568897540812, guid: ede3c40fd64832041b7ef8d7110ad707,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
