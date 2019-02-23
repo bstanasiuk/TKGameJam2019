@@ -57,13 +57,14 @@ public class PlayerLegs : MonoBehaviour
         MoveTorso();
 
         Vector3 debugPos = (leftLegTargetPosition + rightLegTargetPosition) * 0.5f;
-        if(frameCounter == 0)
-        {
-
-        }
-        frameCounter++;
+        
         debugPos.y = _torsoheight;
         debugPos.z = -2.412662f;
+        if(frameCounter == 0)
+        {
+            followingPos = debugPos;
+        }
+        frameCounter++;
         if(debugSphere != null)
         {
             debugSphere.transform.position = debugPos;
