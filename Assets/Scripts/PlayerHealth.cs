@@ -32,6 +32,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-
+        Debug.Log("I died! Said " + transform.name);
     }
 }
