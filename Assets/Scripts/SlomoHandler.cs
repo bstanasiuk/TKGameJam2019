@@ -5,17 +5,34 @@ using UnityEngine;
 public class SlomoHandler : MonoBehaviour
 {
     [SerializeField]
-    float slomoTime=1f;
+    float slomoTime=2f;
 
-    // Start is called before the first frame update
-    void Start()
+    bool isSlomo;
+
+    public void StartSlomo()
     {
-        
+
+        if (!isSlomo)
+        {
+            Time.timeScale = 0.05f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+            isSlomo = true;
+            StartCoroutine(Slomo());
+
+        }
+       
+
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Slomo()
     {
-        
+        while(Time.timeScale<1)
+        {
+            Time.timeScale += Time.unscaledDeltaTime * (1f / slomoTime);
+            yield return null;
+        }
+        Time.timeScale = 1;
+        Time.fixedDeltaTime =  Time.timeScale * 0.02f;
+        isSlomo = false;
     }
 }
