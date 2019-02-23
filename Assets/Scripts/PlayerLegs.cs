@@ -83,14 +83,14 @@ public class PlayerLegs : MonoBehaviour
             debugCube.transform.localScale = new Vector3(velocity, debugCube.transform.localScale.y, debugCube.transform.localScale.z);
         }
 
-        followingPos = Vector3.Lerp(followingPos, debugPos, _forceTargetSpeed * Time.fixedDeltaTime);
+        followingPos = Vector3.Lerp(followingPos, debugPos, _forceTargetSpeed * Time.fixedUnscaledDeltaTime);
 
         if(debugSphere2 != null)
         {
             debugSphere2.transform.position = followingPos;   
         }
 
-        velocity -= Mathf.Sign(velocity) * 2.0f * Time.fixedDeltaTime;
+        velocity -= Mathf.Sign(velocity) * 2.0f * Time.fixedUnscaledDeltaTime;
         if(Mathf.Abs(velocity) > attackTreshold)
         {
             _playerTorso.AddForceAtPosition((followingPos - debugPos) * attackForce * 0.1f, neckTransform.position);
