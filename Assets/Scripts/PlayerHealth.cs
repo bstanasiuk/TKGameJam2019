@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private int health=1;
+    [SerializeField]
+    SlomoHandler slomoHandler;
+    private int health=3;
+
+    private bool isInvincible=false;
+
     public int Health
     {
         get
@@ -14,25 +19,33 @@ public class PlayerHealth : MonoBehaviour
         }
         set
         {
-            health = value;
-            if (health <= 0)
+            if (!isInvincible)
             {
-                Die();
-            }
-            else
-            {
-                Hit(); 
+                health = value;
+                Hit();
+                isInvincible = true;
+                StartCoroutine(InvincibleTime());
             }
         }
     }
 
     private void Hit()
     {
-
+        slomoHandler.StartSlomo();
+        if(health<=0)
+        {
+            Die();
+        }
     }
 
     private void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator InvincibleTime()
+    {
+        yield return new WaitForSeconds(.25f);
+        isInvincible = false;
     }
 }
