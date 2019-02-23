@@ -25,13 +25,9 @@ public class WeaponHandler : MonoBehaviour
 
     public void AttachWeapon()
     {
-        GameObject newWeapon = Instantiate(weaponPref);
-        Vector3 anglesRotation = newWeapon.transform.localEulerAngles;
-        Vector3 position = newWeapon.transform.position;
-        newWeapon.transform.SetParent(hand);
-       
-        newWeapon.transform.localEulerAngles = anglesRotation;
-        newWeapon.transform.localPosition = position;
+        GameObject newWeapon = Instantiate(weaponPref, hand, false);
+
     }
+
 
 }
