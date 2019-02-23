@@ -8,6 +8,7 @@ public class LineVisualizer : MonoBehaviour
     [SerializeField] private float spaceOffset;
     [SerializeField] private float xOffset;
     [SerializeField] private float zOffset;
+    [SerializeField] private bool reverseOrder;
 
     public List<Transform> Keys { get; } = new List<Transform>();
 
@@ -23,6 +24,7 @@ public class LineVisualizer : MonoBehaviour
             Keys.Add(Instantiate(_keyPrefab, new Vector3(xOffset + i * spaceOffset, 0, zOffset),
                 _keyPrefab.transform.rotation, transform));
         }
+        if (reverseOrder) Keys.Reverse();
     }
 
     public void ActivateKey(int keyIndex)
