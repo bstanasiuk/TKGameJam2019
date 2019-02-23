@@ -10,6 +10,8 @@ public class LineVisualizerWithMeshKeys : MonoBehaviour
     private Material _disabledKeyMaterial;
     [SerializeField]
     private Material _enabledKeyMaterial;
+    [SerializeField]
+    private Material _eligibleKeyMaterial;
 
     public Transform[] Keys
     {
@@ -24,5 +26,10 @@ public class LineVisualizerWithMeshKeys : MonoBehaviour
     public void DisableKey(int keyIndex)
     {
         Keys[keyIndex].GetComponent<MeshRenderer>().material = _disabledKeyMaterial;
+    }
+
+    public void ShowEligibleFrame(int keyIndex)
+    {
+        Keys[keyIndex].GetComponent<MeshRenderer>().material = _eligibleKeyMaterial;
     }
 }
