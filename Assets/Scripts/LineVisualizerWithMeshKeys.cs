@@ -14,7 +14,6 @@ public class LineVisualizerWithMeshKeys : MonoBehaviour
     public Transform[] Keys
     {
         get { return _keys; }
-        private set { _keys = value; }
     }
 
     public void ActivateKey(int keyIndex)
