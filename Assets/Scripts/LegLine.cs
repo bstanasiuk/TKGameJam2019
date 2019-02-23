@@ -3,7 +3,7 @@
 public class LegLine : MonoBehaviour
 {
     [SerializeField] private KeyCode[] _keys;
-    public LineVisualizer LineVisualizer { get; private set; }
+    public LineVisualizerWithMeshKeys LineVisualizer { get; private set; }
     public int? SelectedKeyIndex { get; private set; }
 
     public KeyCode[] Keys
@@ -13,7 +13,7 @@ public class LegLine : MonoBehaviour
 
     private void Awake()
     {
-        LineVisualizer = GetComponent<LineVisualizer>();
+        LineVisualizer = GetComponent<LineVisualizerWithMeshKeys>();
     }
 
     private void Update()
