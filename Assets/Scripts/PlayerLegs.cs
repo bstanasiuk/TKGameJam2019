@@ -7,23 +7,62 @@ public class PlayerLegs : MonoBehaviour
     [SerializeField] private LegLine _leftLegLine;
     [SerializeField] private LegLine _rightLegLine;
 
-    [SerializeField] private Transform _playerTorso;
-    [SerializeField] private Transform _playerLeftLeg;
-    [SerializeField] private Transform _playerRightLeg;
+    [SerializeField] private Rigidbody _playerLeftLeg;
+    [SerializeField] private Rigidbody _playerRightLeg;
+
+    [SerializeField] private float _legForceMultiplier = 10f;
 
     private void Start()
     {
-/*        var torsoPosition = Vector3.Lerp(_leftLegLine.LineVisualizer.Keys[0].transform.position, _rightLegLine.LineVisualizer.Keys[0].transform.position, 0.5f);
-       _playerTorso.transform.position = new Vector3(torsoPosition.x, _playerTorso.transform.position.y, torsoPosition.z);
-        var leftLegPosition = _leftLegLine.LineVisualizer.Keys[0].transform.position;
-        _playerLeftLeg.transform.position = leftLegPosition;
-        var rightLegPosition = _rightLegLine.LineVisualizer.Keys[0].transform.position;
-        _playerRightLeg.transform.position = rightLegPosition;*/
+
     }
 
     private void Update()
     {
         CheckLegAlignment();
+    }
+
+    private void FixedUpdate()
+    {
+        MoveLegs();
+    }
+
+    private void MoveLegs()
+    {
+        MoveLeftLeg();
+        MoveRightLeg();
+    }
+
+    private void MoveLeftLeg()
+    {
+        if (_leftLegLine.SelectedKeyIndex.HasValue)
+        {
+            var leftLegTargetPosition = _leftLegLine.LineVisualizer.Keys[_leftLegLine.SelectedKeyIndex.Value].transform.position;
+            leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 0.3f, leftLegTargetPosition.z);
+            _playerLeftLeg.AddForce((leftLegTargetPosition - _playerLeftLeg.position) * _legForceMultiplier);
+        }
+        else if (_rightLegLine.SelectedKeyIndex.HasValue)
+        {
+            var leftLegTargetPosition = _rightLegLine.LineVisualizer.Keys[_rightLegLine.SelectedKeyIndex.Value].transform.position;
+            leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 0.6f, _playerLeftLeg.transform.position.z);
+            _playerLeftLeg.AddForce((leftLegTargetPosition - _playerLeftLeg.position) * _legForceMultiplier);
+        }
+    }
+
+    private void MoveRightLeg()
+    {
+        if (_rightLegLine.SelectedKeyIndex.HasValue)
+        {
+            var rightLegTargetPosition = _rightLegLine.LineVisualizer.Keys[_rightLegLine.SelectedKeyIndex.Value].transform.position;
+            rightLegTargetPosition = new Vector3(rightLegTargetPosition.x, 0.3f, rightLegTargetPosition.z);
+            _playerRightLeg.AddForce((rightLegTargetPosition - _playerRightLeg.position) * _legForceMultiplier);
+        }
+        else if (_leftLegLine.SelectedKeyIndex.HasValue)
+        {
+            var rightLegTargetPosition = _leftLegLine.LineVisualizer.Keys[_leftLegLine.SelectedKeyIndex.Value].transform.position;
+            rightLegTargetPosition = new Vector3(rightLegTargetPosition.x, 0.6f, _playerRightLeg.transform.position.z);
+            _playerRightLeg.AddForce((rightLegTargetPosition - _playerRightLeg.position) * _legForceMultiplier);
+        }
     }
 
     private void CheckLegAlignment()
