@@ -54,7 +54,8 @@ public class MatchController : MonoBehaviour
             {
                 if (!firstPlayerReady)
                 {
-                    SpawnPlayer(firstPlayer);
+                    //SpawnPlayer(firstPlayer);
+                    EventManager.Instance.PlayerReady.Invoke(0);
                     firstPlayerReady = true;
                     inputGui.HideFirstPlayerText();
                 }
@@ -64,7 +65,8 @@ public class MatchController : MonoBehaviour
                 if (firstPlayerReady)
                 {
                     firstPlayerReady = false;
-                    HidePlayer(firstPlayer);
+                    //HidePlayer(firstPlayer);
+                    EventManager.Instance.PlayerUnready.Invoke(0);
                     inputGui.ShowFirstPlayerText();
                 }
             }
@@ -73,7 +75,8 @@ public class MatchController : MonoBehaviour
             {
                 if (!secondPlayerReady)
                 {
-                    SpawnPlayer(secondPlayer);
+                    //SpawnPlayer(secondPlayer);
+                    EventManager.Instance.PlayerReady.Invoke(1);
                     secondPlayerReady = true;
                     inputGui.HideSecondPlayerText();
                 }
@@ -83,7 +86,8 @@ public class MatchController : MonoBehaviour
                 if (secondPlayerReady)
                 {
                     secondPlayerReady = false;
-                    HidePlayer(secondPlayer);
+                    //HidePlayer(secondPlayer);
+                    EventManager.Instance.PlayerUnready.Invoke(1);
                     inputGui.ShowSecondPlayerText();
 
                 }
