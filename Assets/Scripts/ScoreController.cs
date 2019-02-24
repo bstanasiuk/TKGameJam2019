@@ -31,8 +31,13 @@ public class ScoreController : MonoBehaviour
    
 
     // Update is called once per frame
-    void OnDead(PlayerDeadStruct pos)
+    void OnDead(PlayerDeadStruct pds)
     {
-        PlayerPrefs.SetInt(hashKey, PlayerPrefs.GetInt(hashKey) + 1);
+        if (pds.layer != gameObject.layer)
+        {
+            PlayerPrefs.SetInt(hashKey, PlayerPrefs.GetInt(hashKey) + 1);
+            myScoreText.text = PlayerPrefs.GetInt(hashKey).ToString();
+        }
+
     }
 }
