@@ -6460,6 +6460,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 878784782410471462, guid: 27f02053c16a2e242a759764b904d507,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6979216099145248687, guid: 27f02053c16a2e242a759764b904d507,
         type: 3}
       propertyPath: m_isInputParsingRequired
@@ -6484,6 +6489,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861907072771240609, guid: 27f02053c16a2e242a759764b904d507,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3112774184140010146, guid: 27f02053c16a2e242a759764b904d507,
         type: 3}
