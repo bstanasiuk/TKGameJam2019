@@ -6953,6 +6953,11 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4292644608
       objectReference: {fileID: 0}
+    - target: {fileID: 4465649400714141294, guid: 27f02053c16a2e242a759764b904d507,
+        type: 3}
+      propertyPath: m_Name
+      value: Notepad
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f02053c16a2e242a759764b904d507, type: 3}
 --- !u!43 &898770106
@@ -14609,7 +14614,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 09a44f670a7aca74894fbf517c9aede4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14879,7 +14884,7 @@ PrefabInstance:
     - target: {fileID: 3983649097729280034, guid: 794a72459b4863f4d8fd3ae4779418bd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.18729952
+      value: 0.1872995
       objectReference: {fileID: 0}
     - target: {fileID: 3983649097729280034, guid: 794a72459b4863f4d8fd3ae4779418bd,
         type: 3}
@@ -16008,7 +16013,7 @@ PrefabInstance:
     - target: {fileID: 4001008954523477513, guid: 65fd4988e45604348b4ddf3ffb4be091,
         type: 3}
       propertyPath: volume
-      value: 0.05
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65fd4988e45604348b4ddf3ffb4be091, type: 3}

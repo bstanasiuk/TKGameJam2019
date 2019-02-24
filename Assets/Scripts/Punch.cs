@@ -29,6 +29,7 @@ public class Punch : MonoBehaviour
         punchAudioSource.clip = GetRandomAudioClip();
         if (!punchAudioSource.isPlaying)
         {
+            punchAudioSource.pitch = 0.35f;
             punchAudioSource.Play();
         }
     }
