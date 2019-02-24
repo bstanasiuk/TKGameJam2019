@@ -18,10 +18,11 @@ public class ScoreController : MonoBehaviour
     {
         if (resetPlayerPrefs) PlayerPrefs.DeleteAll();
         EventManager.Instance.PlayerDead.AddListener(OnDead);
-        hashKey = hashKeyPrefix + gameObject.layer;
+        hashKey = hashKeyPrefix + gameObject.layer.ToString();
         if(PlayerPrefs.HasKey(hashKey))
         {
             myScoreText.text = PlayerPrefs.GetInt(hashKey).ToString();
+
         }
         else
         {
