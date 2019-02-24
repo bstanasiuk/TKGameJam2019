@@ -30,6 +30,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
+    private void Start()
+    {
+        EventManager.Instance.PlayerDead.AddListener(OnDead);
+    }
+
     private void Hit()
     {
         if (Armor)
@@ -46,7 +52,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        EventManager.Instance.PlayerDead.Invoke(Vector3.zero);
+        PlayerDeadStruct playerDeadStruct = new PlayerDeadStruct();
+        playerDeadStruct.layer = gameObject.layer;
+        EventManager.Instance.PlayerDead.Invoke(playerDeadStruct);
+    }
+
+    void OnDead(PlayerDeadStruct pds)
+    {
+        Destroy(this);
     }
 
     IEnumerator InvincibleTime()

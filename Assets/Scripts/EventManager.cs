@@ -1,4 +1,11 @@
-﻿public class EventManager : Singleton<EventManager>
+﻿using UnityEngine;
+public class EventManager : Singleton<EventManager>
 {
-    public Vector3Event PlayerDead;
+    public PlayerDeadStructEvent PlayerDead;
+}
+
+public struct PlayerDeadStruct
+{
+    public Vector3 position;
+    public int layer;
 }

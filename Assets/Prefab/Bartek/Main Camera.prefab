@@ -29,8 +29,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5205808461621698096}
-  m_LocalRotation: {x: 0.18081345, y: 0.07790939, z: 0.0019832167, w: 0.98042476}
-  m_LocalPosition: {x: 4.8046284, y: 12.52, z: -22.725767}
+  m_LocalRotation: {x: 0.07453735, y: 0.1656989, z: -0.012560849, w: 0.9832753}
+  m_LocalPosition: {x: -1.5653715, y: 7.13, z: -21.125767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShowDebugText: 0
   m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
+  m_IgnoreTimeScale: 1
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
   m_DefaultBlend:

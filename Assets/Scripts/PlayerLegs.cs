@@ -178,7 +178,7 @@ public class PlayerLegs : MonoBehaviour
         }
     }
 
-    private void OnPlayerDead(Vector3 pos)
+    private void OnPlayerDead(PlayerDeadStruct pos)
     {
         this.enabled = false;
     }
