@@ -67,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator InvincibleTime()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(1f);
         isInvincible = false;
     }
 }
