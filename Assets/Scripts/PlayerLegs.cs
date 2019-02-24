@@ -41,10 +41,12 @@ public class PlayerLegs : MonoBehaviour
         followingPos = (_playerRightLegFootPosition.position + _playerLeftLegFootPosition.position) * 0.5f;
         followingPos.y = _torsoheight;
         followingPos.z = -2.412662f;
+
+        EventManager.Instance.PlayerDead.AddListener(OnPlayerDead);
     }
     private void Update()
     {
-        //CheckLegAlignment();
+        CheckLegAlignment();
     }
 
     private void FixedUpdate()
@@ -180,12 +182,17 @@ public class PlayerLegs : MonoBehaviour
         }
     }
 
-/*    private void CheckLegAlignment()
+    private void OnPlayerDead(Vector3 pos)
+    {
+        this.enabled = false;
+    }
+
+    private void CheckLegAlignment()
     {
         var legRange = _rightLegLine.SelectedKeyIndex - _leftLegLine.SelectedKeyIndex;
         if (legRange >= -2 && legRange <= 1)
         {
             print("OK");
         }
-    }*/
+    }
 }
