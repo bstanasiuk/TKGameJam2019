@@ -22,6 +22,6 @@ public class MainMenu : MonoBehaviour
 
     void GoToMatchScene()
     {
-       // SceneManager.LoadScene("asdf");
+        SceneManager.LoadScene("FinalRondaar");
     }
 }

@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/TimberinMenu.unity
+    guid: e5c7cbb65312fab4a8db29a71ef34ea1
+  - enabled: 1
+    path: Assets/Scenes/FinalRondaar.unity
+    guid: afa44ec2eae714db8821d538a73da128
   m_configObjects: {}
