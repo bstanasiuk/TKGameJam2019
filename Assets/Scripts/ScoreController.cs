@@ -7,8 +7,6 @@ public class ScoreController : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI myScoreText;
-    [SerializeField]
-    bool resetPlayerPrefs;
 
     const string hashKeyPrefix = "player";
     string hashKey;
@@ -16,7 +14,6 @@ public class ScoreController : MonoBehaviour
 
     void Start()
     {
-        if (resetPlayerPrefs) PlayerPrefs.DeleteAll();
         EventManager.Instance.PlayerDead.AddListener(OnDead);
         hashKey = hashKeyPrefix + gameObject.layer.ToString();
         if(PlayerPrefs.HasKey(hashKey))
@@ -34,7 +31,7 @@ public class ScoreController : MonoBehaviour
    
 
     // Update is called once per frame
-    void OnDead(Vector3 pos)
+    void OnDead(PlayerDeadStruct pos)
     {
         PlayerPrefs.SetInt(hashKey, PlayerPrefs.GetInt(hashKey) + 1);
     }

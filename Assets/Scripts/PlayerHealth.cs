@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
         EventManager.Instance.PlayerDead.Invoke(playerDeadStruct);
     }
 
-    void OnDead(Vector3 pos)
+    void OnDead(PlayerDeadStruct pds)
     {
         Destroy(this);
     }
