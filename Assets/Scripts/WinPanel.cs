@@ -8,6 +8,7 @@ public class WinPanel : MonoBehaviour
     [SerializeField] private int _winScore;
     [SerializeField] private RectTransform _winPanel;
     [SerializeField] private TextMeshProUGUI _winText;
+    [SerializeField] private ResetManager _resetManager;
 
     private void Update()
     {
@@ -32,6 +33,7 @@ public class WinPanel : MonoBehaviour
 
     private void FirstPlayerWins()
     {
+        _resetManager.gameObject.SetActive(false);
         _winPanel.gameObject.SetActive(true);
         _winText.text = "BLUE WINS!";
         _winText.color = Color.blue;
@@ -39,6 +41,7 @@ public class WinPanel : MonoBehaviour
 
     private void SecondPlayerWins()
     {
+        _resetManager.gameObject.SetActive(false);
         _winPanel.gameObject.SetActive(true);
         _winText.text = "RED WINS!";
         _winText.color = Color.red;
