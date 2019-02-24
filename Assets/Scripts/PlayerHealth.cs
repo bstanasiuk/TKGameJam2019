@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Armor && !isInvincible)
         {
+            Crunch.Instance.PlayCrunch();
             isInvincible = true;
             StartCoroutine(InvincibleTime());
             Destroy(Armor);
