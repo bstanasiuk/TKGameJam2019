@@ -19,12 +19,10 @@ public class MusicPlayer : MonoBehaviour
     }
     #endregion
 
-    AudioSource audioSrc;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSrc.Play();
         DontDestroyOnLoad(gameObject);
     }
 
