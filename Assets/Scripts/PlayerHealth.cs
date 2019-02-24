@@ -46,7 +46,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        EventManager.Instance.PlayerDead.Invoke(Vector3.zero);
+        PlayerDeadStruct playerDeadStruct = new PlayerDeadStruct();
+        playerDeadStruct.layer = gameObject.layer;
+        EventManager.Instance.PlayerDead.Invoke(playerDeadStruct);
     }
 
     IEnumerator InvincibleTime()

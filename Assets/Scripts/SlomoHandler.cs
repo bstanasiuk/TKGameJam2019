@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SlomoHandler : MonoBehaviour
 {
+    public static SlomoHandler Instance;
     [SerializeField]
     float slomoTime=2f;
 
@@ -11,6 +12,7 @@ public class SlomoHandler : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         Time.timeScale = 1;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
     }
@@ -23,7 +25,7 @@ public class SlomoHandler : MonoBehaviour
             Time.timeScale = 0.05f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
             isSlomo = true;
-            StartCoroutine(Slomo());
+            //StartCoroutine(Slomo());
 
         }
        
