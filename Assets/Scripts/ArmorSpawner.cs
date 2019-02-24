@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class ArmorSpawner : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject _armorPrefab;
+
+
 }

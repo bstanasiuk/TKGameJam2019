@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     SlomoHandler slomoHandler;
     private int health=3;
-    private bool hasArmor;
+    public GameObject Armor { get; set; }
 
     private bool isInvincible=false;
 
@@ -30,14 +30,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void AddArmor()
-    {
-        hasArmor = true;
-    }
-
     private void Hit()
     {
-        if (slomoHandler && !hasArmor) slomoHandler.StartSlomo();
+        if (slomoHandler && !Armor) slomoHandler.StartSlomo();
+        if (Armor)
+        {
+            Destroy(Armor);
+            Armor = null;
+            return;
+        }
         if(health<=0)
         {
             Die();
