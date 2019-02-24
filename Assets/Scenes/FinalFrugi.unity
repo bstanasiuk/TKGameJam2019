@@ -2267,37 +2267,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1489457813}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &216315935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216315934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da04e8dcea1ab4e359db7d650aa75f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slomoHandler: {fileID: 0}
-  health: 3
---- !u!114 &216315938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216315934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b66e35107b6544cf8193b2dac0dd3c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: {fileID: 1622397794}
-  weaponPref:
-  - {fileID: 6451658422183840202, guid: 732c666de3e4f47bab76a64d326169f4, type: 3}
-  - {fileID: 8717905218467406963, guid: ebb9f6083cc08db439c00ff15d3d8fa3, type: 3}
-  - {fileID: 2682349437340638888, guid: d84a491ac2acc456ca87600921c4545a, type: 3}
 --- !u!43 &240992244
 Mesh:
   m_ObjectHideFlags: 0
@@ -6041,20 +6010,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8946964167195230432}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &791181426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791181425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da04e8dcea1ab4e359db7d650aa75f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slomoHandler: {fileID: 0}
-  health: 3
 --- !u!1 &793692887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,7 +6056,8 @@ MonoBehaviour:
   PlayerDead:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Vector3Event, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: PlayerDeadStructEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &793692890
 Transform:
   m_ObjectHideFlags: 0
@@ -15248,11 +15204,6 @@ PrefabInstance:
       propertyPath: _rightLegLine
       value: 
       objectReference: {fileID: 1801055360}
-    - target: {fileID: 8946964167617312914, guid: e5664eb4f20294247b6d43f24f286e74,
-        type: 3}
-      propertyPath: _legForceMultiplier
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 4311889276117491933, guid: e5664eb4f20294247b6d43f24f286e74,
         type: 3}
       propertyPath: m_RootOrder
@@ -15393,17 +15344,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5809984508945361551, guid: e5664eb4f20294247b6d43f24f286e74,
-        type: 3}
-      propertyPath: weaponPref.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809984508945361551, guid: e5664eb4f20294247b6d43f24f286e74,
-        type: 3}
-      propertyPath: weaponPref.Array.data[0]
-      value: 
-      objectReference: {fileID: 5893361402731508253, guid: 41d61e49365dfa844a87f492b101d0b6,
-        type: 3}
     - target: {fileID: 4315961743685599822, guid: e5664eb4f20294247b6d43f24f286e74,
         type: 3}
       propertyPath: m_RootOrder
