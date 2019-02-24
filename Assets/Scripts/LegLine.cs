@@ -3,12 +3,12 @@
 public class LegLine : MonoBehaviour
 {
     [SerializeField] private KeyCode[] _keys;
+
+    [SerializeField] private MatchController _matchController;
     [SerializeField] private LegLine _secondLegLine;
     public LineVisualizerWithMeshKeys LineVisualizer { get; private set; }
     public int? SelectedKeyIndex { get; private set; }
     public int LastSelectedKey { get; private set; }
-
-    [SerializeField] private MatchController _matchController;
 
     public KeyCode[] Keys
     {
@@ -23,9 +23,12 @@ public class LegLine : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        if (!_matchController.Ready) return;
         ActivateKeys();
-        
+    }
+
+    private void ActivateStartKeys()
+    {
+        LineVisualizer.ShowEligibleFrame(0);
     }
 
     private void ActivateKeys()
@@ -33,9 +36,7 @@ public class LegLine : MonoBehaviour
         for (var i = 0; i < _keys.Length; i++)
         {
             if (IsEligible(i))
-            {
                 LineVisualizer.ShowEligibleFrame(i);
-            }
             if (SelectedKeyIndex.HasValue && SelectedKeyIndex.Value == i)
                 LineVisualizer.ActivateKey(i);
         }
@@ -65,6 +66,7 @@ public class LegLine : MonoBehaviour
 
     private bool IsEligible(int keyIndex)
     {
+        if (!_matchController.Ready && keyIndex > 0 && keyIndex < 3) return false;
         var lowerLastLinesIndex = Mathf.Min(LastSelectedKey, _secondLegLine.LastSelectedKey);
         var higherLastLinesIndex = Mathf.Max(LastSelectedKey, _secondLegLine.LastSelectedKey);
         return keyIndex <= lowerLastLinesIndex + 2 && keyIndex >= higherLastLinesIndex - 2;
