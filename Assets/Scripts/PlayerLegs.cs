@@ -44,10 +44,6 @@ public class PlayerLegs : MonoBehaviour
 
         EventManager.Instance.PlayerDead.AddListener(OnPlayerDead);
     }
-    private void Update()
-    {
-        CheckLegAlignment();
-    }
 
     private void FixedUpdate()
     {
