@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slomoHandler: {fileID: 6377105730984943653}
+  health: 1
 --- !u!114 &6377105730984943653
 MonoBehaviour:
   m_ObjectHideFlags: 0

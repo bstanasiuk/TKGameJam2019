@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
     SlomoHandler slomoHandler;
-    private int health=3;
+    [SerializeField] private int health=3;
     public GameObject Armor { get; set; }
 
     private bool isInvincible=false;

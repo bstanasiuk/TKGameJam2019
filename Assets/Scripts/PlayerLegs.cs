@@ -44,7 +44,7 @@ public class PlayerLegs : MonoBehaviour
     }
     private void Update()
     {
-        CheckLegAlignment();
+        //CheckLegAlignment();
     }
 
     private void FixedUpdate()
@@ -180,12 +180,12 @@ public class PlayerLegs : MonoBehaviour
         }
     }
 
-    private void CheckLegAlignment()
+/*    private void CheckLegAlignment()
     {
         var legRange = _rightLegLine.SelectedKeyIndex - _leftLegLine.SelectedKeyIndex;
         if (legRange >= -2 && legRange <= 1)
         {
             print("OK");
         }
-    }
+    }*/
 }

@@ -56,13 +56,12 @@ public class CounterGui : MonoBehaviour
         timer = timeBetweenTicks;
         counterText.text = "FIGHT!";
         counterText.transform.localScale = increasedSize;
+        matchController.Ready = true;
         while (timer>0)
         {
             timer -= Time.deltaTime;
             yield return null;
         }
-
-        matchController.Ready = true;
         counterText.text = "";
 
     }
