@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Armor)
         {
+            Crunch.Instance.PlayCrunch();
             Destroy(Armor);
             Armor = null;
             return;
