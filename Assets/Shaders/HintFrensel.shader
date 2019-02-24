@@ -3,9 +3,12 @@
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
+        _RimColor ("RimColor", Color) = (1,1,1,1)
+        _RimPower("Rim Power", Range(0.5,8.0)) = 3
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        
     }
     SubShader
     {
@@ -24,12 +27,15 @@
         struct Input
         {
             float2 uv_MainTex;
+            float3 viewDir;
         };
 
         half _Glossiness;
         half _Metallic;
+        half _RimPower;
         fixed4 _Color;
-
+        fixed4 _RimColor;
+        
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
@@ -46,6 +52,8 @@
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
+            half rim = 1- saturate(dot(normalize(IN.viewDir),o.Normal));
+            o.Emission = _RimColor.rgb * pow(rim,_RimPower);
         }
         ENDCG
     }
