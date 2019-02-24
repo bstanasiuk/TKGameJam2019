@@ -38,11 +38,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void Hit()
     {
-        if (Armor && !isInvincible)
+        if (Armor)
         {
             Crunch.Instance.PlayCrunch();
-            isInvincible = true;
-            StartCoroutine(InvincibleTime());
+            ArmorParticleDestroy.Instance.Play(Armor.transform.position);
             Destroy(Armor);
             Armor = null;
             return;
@@ -68,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator InvincibleTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.25f);
         isInvincible = false;
     }
 }
