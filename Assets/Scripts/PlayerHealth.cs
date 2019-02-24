@@ -55,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
         PlayerDeadStruct playerDeadStruct = new PlayerDeadStruct();
         playerDeadStruct.layer = gameObject.layer;
         EventManager.Instance.PlayerDead.Invoke(playerDeadStruct);
+        Punch.Instance.PlayPunch();
     }
 
     void OnDead(PlayerDeadStruct pds)
