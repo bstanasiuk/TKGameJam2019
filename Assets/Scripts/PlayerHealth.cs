@@ -32,7 +32,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Hit()
     {
-        if (slomoHandler && !Armor) slomoHandler.StartSlomo();
         if (Armor)
         {
             Destroy(Armor);
