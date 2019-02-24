@@ -12,6 +12,14 @@ public class Weapon : MonoBehaviour
         if (playerHealth)
         {
             playerHealth.Health--;
+            if(playerHealth.Health == 0)
+            {
+                PlayerHitStruct playerHitStruct = new PlayerHitStruct();
+                playerHitStruct.position = other.contacts[0].point;
+                playerHitStruct.rotation = other.contacts[0].normal;
+                playerHitStruct.gameObject = other.collider.gameObject;
+                EventManager.Instance.PlayerHit.Invoke(playerHitStruct);
+            }
         }
     }
 }
