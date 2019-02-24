@@ -5,6 +5,7 @@ using UnityEngine;
 public class SFXManager : MonoBehaviour
 {
     [SerializeField] private AudioClip [] beatAudioClip;
+    [SerializeField] private float volume;
 
     private AudioSource audioSource;
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class SFXManager : MonoBehaviour
             audioSource = temp.AddComponent<AudioSource>();
             audioSource.clip = beatAudioClip[iterator];
             audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.volume = volume;
             audioSource.Play();
             Destroy(temp, beatAudioClip[iterator].length + 0.1f);
             iterator++;
