@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 735788129881339246}
   - component: {fileID: 3840577952936819351}
   - component: {fileID: 8262343744388221730}
+  - component: {fileID: 5922018261211036778}
   m_Layer: 0
   m_Name: Maczuga Variant Variant 1
   m_TagString: Untagged
@@ -108,3 +109,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.030877968
   m_Center: {x: 0.0054797675, y: 0.004454548, z: -0.021653948}
+--- !u!114 &5922018261211036778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4815197557436379933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec41738209e4654e9b48ac9f77c5190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

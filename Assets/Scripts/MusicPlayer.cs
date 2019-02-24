@@ -24,7 +24,7 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSrc.Play();
+        //audioSrc.Play();
         DontDestroyOnLoad(gameObject);
     }
 

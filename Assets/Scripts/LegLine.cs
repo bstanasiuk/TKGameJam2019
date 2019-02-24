@@ -8,6 +8,8 @@ public class LegLine : MonoBehaviour
     public int? SelectedKeyIndex { get; private set; }
     public int LastSelectedKey { get; private set; }
 
+    [SerializeField] private MatchController _matchController;
+
     public KeyCode[] Keys
     {
         get { return _keys; }
@@ -21,6 +23,7 @@ public class LegLine : MonoBehaviour
     private void Update()
     {
         HandleInput();
+        if (!_matchController.Ready) return;
         ActivateKeys();
         
     }
