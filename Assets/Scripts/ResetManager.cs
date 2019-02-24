@@ -35,8 +35,10 @@ public class ResetManager : MonoBehaviour
     {
         ColorGrading colorGradingLayer = null;
         volume.profile.TryGetSettings(out colorGradingLayer);
-        colorGradingLayer.saturation.value = -100.0f;
-        yield return new WaitForSecondsRealtime(timeBeforeRestart * 2.0f / 3.0f);
-        yield return new WaitForSecondsRealtime(timeBeforeRestart * 1.0f / 3.0f);
+        while(true)
+        {
+            colorGradingLayer.saturation.value = Mathf.Lerp(colorGradingLayer.saturation.value, -100.0f, 10.0f * Time.unscaledDeltaTime);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
