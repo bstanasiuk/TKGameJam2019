@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
         if (playerHealth)
         {
             playerHealth.Health--;
-            if(playerHealth.Health == 0)
+            if(playerHealth.Health == -1)
             {
                 PlayerHitStruct playerHitStruct = new PlayerHitStruct();
                 playerHitStruct.position = other.contacts[0].point;
