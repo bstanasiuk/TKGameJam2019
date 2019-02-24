@@ -23,6 +23,9 @@ public class PlayerLegs : MonoBehaviour
     [SerializeField] private GameObject debugCube;
     [SerializeField] private float attackTreshold = 0.6f;
     [SerializeField] private float attackForce = 700f;
+    [SerializeField] private Vector3 _playerRightLegFootStartingPosition;
+    [SerializeField] private Vector3 _playerLeftLegFootStartingPosition;
+    [SerializeField] private GameObject shockwave;
 
 
     private Vector3 leftLegTargetPosition;
@@ -36,6 +39,10 @@ public class PlayerLegs : MonoBehaviour
 
     private int frameCounter = 0;
 
+    private bool playerReady;
+    private bool playParticle;
+    private bool particlePlayed;
+
     void Start()
     {
         followingPos = (_playerRightLegFootPosition.position + _playerLeftLegFootPosition.position) * 0.5f;
@@ -43,11 +50,28 @@ public class PlayerLegs : MonoBehaviour
         followingPos.z = -2.412662f;
 
         EventManager.Instance.PlayerDead.AddListener(OnPlayerDead);
+        EventManager.Instance.PlayerReady.AddListener(OnPlayerReady);
+        EventManager.Instance.PlayerUnready.AddListener(OnPlayerReady);
     }
 
     private void FixedUpdate()
     {
-        MoveLegs();
+        if(playerReady)
+        {
+            MoveLegs();
+            if(playParticle && !particlePlayed)
+            {
+                playParticle = false;
+                particlePlayed = true;
+                shockwave.transform.position = _playerLeftLegFootPosition.transform.position;
+                shockwave.GetComponent<ParticleSystem>().Play();
+            }
+        }
+        else
+        {
+            _playerLeftLegFootPosition.position = _playerLeftLegFootStartingPosition;
+            _playerRightLegFootPosition.position = _playerRightLegFootStartingPosition;
+        }
     }
 
     private void MoveLegs()
@@ -89,14 +113,18 @@ public class PlayerLegs : MonoBehaviour
         }
 
         velocity -= Mathf.Sign(velocity) * 2.0f * Time.fixedUnscaledDeltaTime;
-        if(Mathf.Abs(velocity) > attackTreshold)
+        //if(playerReady)
         {
-            _playerTorso.AddForceAtPosition((followingPos - debugPos) * attackForce * 0.1f, neckTransform.position);
-        }
-        else if(Mathf.Abs(velocity) < attackTreshold && !(Mathf.Abs(oldVelocity) >= attackTreshold))
-        {
-            //Debug.Log(velocity + " " + oldVelocity + "  " + debugPos + " "  + followingPos + " " + (oldDebugPos - followingPos).magnitude);
-            _playerTorso.AddForce((debugPos - followingPos) * attackForce);
+            Debug.Log("redi");
+            if(Mathf.Abs(velocity) > attackTreshold)
+            {
+                _playerTorso.AddForceAtPosition((followingPos - debugPos) * attackForce * 0.1f, neckTransform.position);
+            }
+            else if(Mathf.Abs(velocity) < attackTreshold && !(Mathf.Abs(oldVelocity) >= attackTreshold))
+            {
+                //Debug.Log(velocity + " " + oldVelocity + "  " + debugPos + " "  + followingPos + " " + (oldDebugPos - followingPos).magnitude);
+                _playerTorso.AddForce((debugPos - followingPos) * attackForce);
+            }
         }
 
         oldDebugPos = debugPos;
@@ -125,6 +153,11 @@ public class PlayerLegs : MonoBehaviour
             //_playerLeftLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
             //_playerLeftLeg.transform.position = leftLegTargetPosition - (-_playerLeftLeg.transform.position + _playerLeftLegFootPosition.position);
         }
+
+        //if(!playerReady)
+        //{
+            //leftLegTargetPosition = new Vector3(leftLegTargetPosition.x, 5.0f, leftLegTargetPosition.z);
+        //}
         _playerLeftLegFootPosition.transform.position =  leftLegTargetPosition;
 
         //_playerLeftLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
@@ -154,6 +187,11 @@ public class PlayerLegs : MonoBehaviour
             //_playerRightLeg.transform.position = rightLegTargetPosition - (-_playerRightLeg.transform.position + _playerRightLegFootPosition.position);
         }
 
+        //if(!playerReady)
+        //{
+            //rightLegTargetPosition += new Vector3(rightLegTargetPosition.x, 5.0f, rightLegTargetPosition.z);
+        //}
+
         _playerRightLegFootPosition.transform.position = rightLegTargetPosition;
 
         //_playerRightLeg.AddForceAtPosition(forceDirection * _legForceMultiplier, forcePosition);
@@ -162,18 +200,21 @@ public class PlayerLegs : MonoBehaviour
 
     private void MoveTorso()
     {
-        if (_leftLegLine.SelectedKeyIndex.HasValue || _rightLegLine.SelectedKeyIndex.HasValue)
+        //if(playerReady)
         {
-            _playerTorso.AddForceAtPosition((new Vector3(0, _torsoheight - _playerTorso.position.y, 0)) * _torsoForceMultiplier, neckTransform.position);
-            needToStop = true;
-        }
-        else
-        {
-            _playerTorso.AddForceAtPosition((new Vector3(0, _playerTorso.position.y - _torsoheight, 0)) * _torsoForceMultiplier * 10.0f, neckTransform.position);
-            if(needToStop)
+            if (_leftLegLine.SelectedKeyIndex.HasValue || _rightLegLine.SelectedKeyIndex.HasValue)
             {
-                //_playerTorso.velocity = new Vector3(0, _playerTorso.velocity.y, 0);
-                needToStop = false;
+                _playerTorso.AddForceAtPosition((new Vector3(0, _torsoheight - _playerTorso.position.y, 0)) * _torsoForceMultiplier, neckTransform.position);
+                needToStop = true;
+            }
+            else
+            {
+                _playerTorso.AddForceAtPosition((new Vector3(0, _playerTorso.position.y - _torsoheight, 0)) * _torsoForceMultiplier * 10.0f, neckTransform.position);
+                if(needToStop)
+                {
+                    //_playerTorso.velocity = new Vector3(0, _playerTorso.velocity.y, 0);
+                    needToStop = false;
+                }
             }
         }
     }
@@ -190,5 +231,20 @@ public class PlayerLegs : MonoBehaviour
         {
             print("OK");
         }
+    }
+
+    void OnPlayerReady(int number)
+    {
+        if(gameObject.layer - 9 == number)
+        {
+            playerReady = true;
+            playParticle = true;
+        }
+    }
+
+    void OnPlayerUnready(int number)
+    {
+        if(gameObject.layer - 9 == number)
+            playerReady = false;
     }
 }

@@ -11,8 +11,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.019548945, y: 0.020000001, z: 0.0033151417}
-  m_Center: {x: 0.00022552918, y: -2.2807513e-11, z: 0.0003669551}
+  m_Size: {x: 0.019548945, y: 0.020000001, z: 0.005276479}
+  m_Center: {x: 0.00022552918, y: -7.460786e-11, z: 0.0013476239}
 --- !u!1001 &5719203052255736559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
       propertyPath: m_Name
       value: guzik Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
+      propertyPath: m_TagString
+      value: Shield
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
       propertyPath: m_TagString
@@ -123,6 +127,18 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.093
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2fbb7bb4a32309b4c8e4cd06bad860d8, type: 3}
       propertyPath: m_LocalPosition.x

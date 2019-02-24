@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cmvStandard: {fileID: 697955588771248886}
   cmvClose: {fileID: 1549876529097102433}
+  cmTargetGroup: {fileID: 8202046851626857421}
 --- !u!1 &3145801398914062459
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6343844662970297215}
-  m_LocalRotation: {x: 0.18081345, y: 0.07790939, z: 0.0019832167, w: 0.98042476}
+  m_LocalRotation: {x: 0.29986462, y: 0.053718105, z: -0.00008052593, w: 0.9524682}
   m_LocalPosition: {x: 1.44, y: 8.88, z: -12.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -310,10 +311,10 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_Targets:
   - target: {fileID: 0}
-    weight: 1
+    weight: 0
     radius: 0
   - target: {fileID: 0}
-    weight: 1
+    weight: 0
     radius: 0
 --- !u!1 &9097860307554517763
 GameObject:

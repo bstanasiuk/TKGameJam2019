@@ -6,7 +6,10 @@ public class Weapon : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Shield")) return;
+        if (other.collider.gameObject.CompareTag("Shield"))
+        { 
+            return;
+        }
         if (gameObject.layer.Equals(other.gameObject.layer)) return;
         var playerHealth = other.transform.GetComponentInParent<PlayerHealth>();
         if (playerHealth)
