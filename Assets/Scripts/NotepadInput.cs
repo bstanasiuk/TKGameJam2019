@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class NotepadInput : MonoBehaviour
 {
+    #region saving
+    const string notepadHashKey = "noteKey";
+
+    private void Start()
+    {
+        if (!PlayerPrefs.HasKey(notepadHashKey)) PlayerPrefs.SetString(notepadHashKey, "");
+        notepad.text = PlayerPrefs.GetString(notepadHashKey);
+    }
+
+    #endregion
+
     TextMeshProUGUI _notepad;
     TextMeshProUGUI notepad
     {
@@ -14,6 +26,7 @@ public class NotepadInput : MonoBehaviour
             {
                 _notepad = GetComponent<TextMeshProUGUI>();              
             }
+           
             return _notepad;
         }
     }
@@ -70,11 +83,17 @@ public class NotepadInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(KeyValuePair<KeyCode, string> e in keysLiteral)
+        WriteInput();
+    }
+
+    public void WriteInput()
+    {
+        foreach (KeyValuePair<KeyCode, string> e in keysLiteral)
         {
-            if(Input.GetKeyDown(e.Key))
+            if (Input.GetKeyDown(e.Key))
             {
                 notepad.text += e.Value;
+                PlayerPrefs.SetString(notepadHashKey, notepad.text);
             }
         }
     }
