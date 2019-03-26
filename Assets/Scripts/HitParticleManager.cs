@@ -11,10 +11,12 @@ public class HitParticleManager : MonoBehaviour
 
     void OnHit(PlayerHitStruct playerHitStruct)
     {
-        transform.position = playerHitStruct.position;
+        transform.position = playerHitStruct.position;  
         transform.rotation = Quaternion.LookRotation(playerHitStruct.rotation);
         transform.parent = playerHitStruct.gameObject.transform;
-
+       
         GetComponent<ParticleSystem>().Play();
     }
+
+
 }

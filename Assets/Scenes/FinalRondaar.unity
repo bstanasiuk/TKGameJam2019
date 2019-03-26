@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6680,17 +6680,17 @@ PrefabInstance:
     - target: {fileID: 3530619594353766240, guid: 332bfae72dce62744834a08f551defb5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.8
+      value: 4.59
       objectReference: {fileID: 0}
     - target: {fileID: 3530619594353766240, guid: 332bfae72dce62744834a08f551defb5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 3530619594353766240, guid: 332bfae72dce62744834a08f551defb5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.06
       objectReference: {fileID: 0}
     - target: {fileID: 3530619594353766240, guid: 332bfae72dce62744834a08f551defb5,
         type: 3}
@@ -6734,83 +6734,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
         type: 3}
-      propertyPath: RotationModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.separateAxes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.x.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.y.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.curve.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.x.minScalar
-      value: 6.283185
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.y.minScalar
-      value: 6.283185
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.curve.minScalar
-      value: 6.283185
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: RotationModule.curve.scalar
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
+    - target: {fileID: 3530619594353766270, guid: 332bfae72dce62744834a08f551defb5,
         type: 3}
-      propertyPath: InitialModule.rotation3D
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c562c4c6d185bb479d0adcc529e0c47, type: 2}
+    - target: {fileID: 3530619594353766270, guid: 332bfae72dce62744834a08f551defb5,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: InitialModule.startRotationX.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: InitialModule.startRotationY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: InitialModule.startRotation.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: InitialModule.startRotationX.minScalar
-      value: 6.283185
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: InitialModule.startRotationY.minScalar
-      value: 6.283185
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530619594353766271, guid: 332bfae72dce62744834a08f551defb5,
-        type: 3}
-      propertyPath: InitialModule.startRotation.minScalar
-      value: 6.283185
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332bfae72dce62744834a08f551defb5, type: 3}
@@ -15230,12 +15165,12 @@ PrefabInstance:
     - target: {fileID: 5205808461621698095, guid: 216f201572912c147b8db22737c7462b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.2653916
+      value: 0.26539156
       objectReference: {fileID: 0}
     - target: {fileID: 5205808461621698095, guid: 216f201572912c147b8db22737c7462b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.018129487
+      value: -0.018129485
       objectReference: {fileID: 0}
     - target: {fileID: 5205808461621698095, guid: 216f201572912c147b8db22737c7462b,
         type: 3}
@@ -15529,12 +15464,12 @@ PrefabInstance:
     - target: {fileID: 1181737837802398250, guid: 794a72459b4863f4d8fd3ae4779418bd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.2653916
+      value: 0.26539156
       objectReference: {fileID: 0}
     - target: {fileID: 1181737837802398250, guid: 794a72459b4863f4d8fd3ae4779418bd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.018129487
+      value: -0.018129485
       objectReference: {fileID: 0}
     - target: {fileID: 1181737837802398250, guid: 794a72459b4863f4d8fd3ae4779418bd,
         type: 3}

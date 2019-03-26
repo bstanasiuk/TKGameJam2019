@@ -3,6 +3,7 @@ public class EventManager : Singleton<EventManager>
 {
     public PlayerDeadStructEvent PlayerDead;
     public PlayerHitStructEvent PlayerHit;
+
     public IntEvent PlayerReady;
     public IntEvent PlayerUnready;
 }

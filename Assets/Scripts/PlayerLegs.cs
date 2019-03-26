@@ -115,7 +115,6 @@ public class PlayerLegs : MonoBehaviour
         velocity -= Mathf.Sign(velocity) * 2.0f * Time.fixedUnscaledDeltaTime;
         //if(playerReady)
         {
-            Debug.Log("redi");
             if(Mathf.Abs(velocity) > attackTreshold)
             {
                 _playerTorso.AddForceAtPosition((followingPos - debugPos) * attackForce * 0.1f, neckTransform.position);
